@@ -8,48 +8,40 @@ class Display extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      child: Column(
-        children: model.data
-            .map((Data d) => Container(
-                  width: double.infinity,
-                  child: Expanded(
-                    child: Card(
-                      color: Colors.blue[100],
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              Text(
-                                "Quistion:  ",
-                                style: TextStyle(fontSize: 20),
-                              ),
-                              Text(
-                                (d.quistion ?? "") + "?",
-                                style: TextStyle(fontSize: 20),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                "Answer:  ",
-                                style: TextStyle(fontSize: 20),
-                              ),
-                              Text(
-                                d.answer ?? "" + "?",
-                                style: TextStyle(fontSize: 20),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
+    return ListView(
+      children: model.data
+          .map((Data d) => Card(
+                color: Colors.blue,
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          "Quistion:  ",
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        Text(
+                          (d.quistion ?? "") + "?",
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ],
                     ),
-                  ),
-                ))
-            .toList(),
-      ),
+                    Row(
+                      children: [
+                        Text(
+                          "Answer:  ",
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        Text(
+                          d.answer ?? "" + "?",
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ))
+          .toList(),
     );
   }
 }

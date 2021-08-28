@@ -5,11 +5,8 @@ AppState appstatereducer(AppState state, action) {
   return AppState(data: datareducer(state.data, action));
 }
 
-List<Data> datareducer(List<Data> state, action) {
-  if (action is AddItem) {
-    return []
-      ..addAll(state)
-      ..add(Data(quistion: action.quistion, answer: action.answer));
-  }
-  return state;
+List<Data> datareducer(List<Data> state, AddItem action) {
+  return []
+    ..add(action.data)
+    ..addAll(state);
 }

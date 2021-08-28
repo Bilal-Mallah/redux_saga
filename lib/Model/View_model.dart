@@ -8,7 +8,7 @@ class ViewModel {
   ViewModel({required this.data, required this.onadd});
   factory ViewModel.create(Store<AppState> store) {
     _onadd(String quis, String answer) {
-      store.dispatch(AddItem(quis, answer));
+      store.dispatch(AddItem(data: Data(answer: answer, quistion: quis)));
     }
 
     return ViewModel(data: store.state.data, onadd: _onadd);

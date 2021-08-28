@@ -1,17 +1,15 @@
 import 'package:redux_saga/redux_saga.dart';
 import 'package:task_redux_saga/Model/check_connection.dart';
-// ignore: unused_import
-import 'package:task_redux_saga/Widgets/alert_dialog.dart';
 import 'package:task_redux_saga/redux/actions.dart';
 
-bool internet = true;
-insert({action}) sync* {
-  var internet = Result();
+var internet = Result();
+insert({AddItem? action}) sync* {
   yield Call(hasNetwork, result: internet);
   if (internet.value) {
-    yield Put(action);
+    yield Put(AddItem(data: action!.data));
   } else {
-    yield Put(null);
+    yield Cancel();
+    print("no internet");
   }
 }
 

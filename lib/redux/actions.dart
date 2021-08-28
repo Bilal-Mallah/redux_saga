@@ -1,8 +1,7 @@
+import 'package:task_redux_saga/Model/data.dart';
+
 class AddItem {
-  final String quistion;
-  final String answer;
+  final Data data;
 
-  AddItem(this.quistion, this.answer);
+  AddItem({required this.data});
 }
-
-class CheckConnection {}
